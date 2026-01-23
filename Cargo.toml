@@ -1,15 +1,10 @@
 [package]
 name = "jamtwopool"
-#version = "0.1.0"
 version = "0.2.0"
-#edition = "2021"
 edition = "2024"
 
 [dependencies]
-#ode_solvers = "0.5.0"
 ode_solvers = "0.6.1"
-#gnuplot = "0.0.44"
 gnuplot = "0.0.46"
-#image = "0.25.4"
 image = "0.25.9"
 piston2d-graphics = "0.45.0"

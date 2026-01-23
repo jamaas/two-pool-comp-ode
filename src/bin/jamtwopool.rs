@@ -10,8 +10,8 @@ the accompanying diagram called "Two Pool Model.pdf */
  * Dr. Nikhil Suresh for help with compartmental model structures in
  * Rust, and Dr. Sylvain Renevey for the ode_solver crate */
 
-// First produced by JAM in Norwich UK on 14/11/2024
-// Last updated on 20/11/2024
+// First produced by JAM in Norwich UK on 2024_11_14
+// Last updated on 2026_01_23
 
 // declare the external Rust crates required
 use ode_solvers::rk4::*;
@@ -59,7 +59,7 @@ fn main() {
     /* declare the stepper function and input the necessary RK4Cr
      method arguments .*/
     // let mut stepper = Rk4::new(system, 0.0,  y0, 1.0e1, 1.0e-1);
-        let mut stepper = Rk4::new(system, 0.0,  y0, 1.0, 1.0e-1);
+        let mut stepper = Rk4::new(system, 0.0,  y0, 1.0e1, 1.0e-1);
 
     // Execute the stepper function, do integrations and produce results
     let  results = stepper.integrate();
@@ -125,6 +125,7 @@ impl ode_solvers::System<f64, State> for TwoPool {
 	//	println!("PoolSizes , A={:.3}, B={:.3}, Tot={:.3}",  y[0], y[1], y[2]);
 	//	println!("Time={:.2}, PoolSizes  A={:.3}, B={:.3}, Tot={:.3}",  time, y[0], y[1], y[2]);
 	println!("Time={:.2},  Fluxes  FAB={:.2},  FBA={:.2}, FBO={:.2},
-PoolSizes  A={:.3}, B={:.3}, Tot={:.3}",  time, fab,fba,fbo,y[0], y[1], y[2]);	
+PoolSizes  A={:.3}, B={:.3}, Tot={:.3},
+Concentrations  [A]={:.3},[B]={:.3}",  time, fab,fba,fbo,y[0], y[1], y[2],con_a, con_b);	
     }
 }
